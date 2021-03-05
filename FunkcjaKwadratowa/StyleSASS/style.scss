@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap');
+*{
+    box-sizing: border-box;
+    border:none;outline: none;
+    padding: 0;margin: 0;
+}
+body{
+    height: 100vh;
+    background-image: linear-gradient(whitesmoke,rgb(0,200,200));
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.convas-container{
+    background-color: rgb(200, 200, 200);
+    border: 15px solid rgba(0, 0, 0, 1);
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    background-image: 
+    linear-gradient(rgb(100, 150, 125),#0000 3%),
+    linear-gradient(90deg,rgb(100, 150, 125),#0000 3%); 
+    background-size: 25px 25px;
+    .num{
+        display: flex;
+        font-size: 10px;
+        position: absolute;
+        span{
+            width: 10px;
+            text-align: center;
+            position: relative; 
+        }
+        .minus:before{
+            position: absolute;
+            left: -1px;
+            content: "-";
+        }
+    }
+    .col{
+        right: 46.5%;
+        height: 95%;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .row{
+        top: 46.5%;
+        width: 95%;
+        justify-content: space-around;
+    }
+    svg{
+        position: absolute;
+        height: 10px;
+    }
+    .osy{
+        height: 10px;
+        top: -1px;
+    }
+    .osx{
+        top: 50%;
+        right: -8px;
+        transform: rotate(90deg) translate(-21%,0); 
+    }
+    .x,.y{
+        position: absolute;
+        text-transform: capitalize;
+        font-family: 'ABeeZee', sans-serif;
+        font-size: 12,5px;
+    }
+    .x{
+        top: 51%;
+        right: 10px;
+    }
+    .y{
+        top: 10px;
+        right: 51%;
+    }
+}
