@@ -9,6 +9,29 @@
 </head>
 <body>
     
+    <div class="form-cont">
+        <h1>Choose the form of a square pattern : </h1>
+        <select id="selectChoice">
+            <option value="ogolna"" selected>Postać ogólna</option>
+            <option value="kanon">Postać kanoniczna</option>
+            <option value="iloczyn">Postać iloczynowa</option>
+        </select>
+        <div class="pattern-cont">
+            <h2 class="ogolna">
+                f(x) = <input type="text" placeholder="a">x<sup>2</sup> + <input type="text" placeholder="b">x + c
+            </h2>
+            <h2 class="kanon">
+                f(x) = <input type="text" placeholder="a">(x - <input type="text" placeholder="p">)<sup>2</sup> + <input type="text" placeholder="q">
+            </h2>
+            <h2 class="iloczyn">
+                f(x) = <input type="text" placeholder="a">(x - <input type="text" placeholder="x1">)(x - <input type="text" placeholder="x2">)<sup>&nbsp;</sup> 
+            </h2>
+        </div>
+        <button id="generate">Generate a graph</button>
+        <div class="img-cont">
+            <img src="./iconmonstr-school-5-120.png" alt="math logo">
+        </div>
+    </div>
     <div class="convas-container">
         <canvas id="canvas" width="500px" height="500px"></canvas>
         <h5 class="col num"></h5>

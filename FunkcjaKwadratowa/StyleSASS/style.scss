@@ -3,10 +3,11 @@
 *{
     box-sizing: border-box;
     border:none;outline: none;
-    padding: 0;margin: 0;
+    padding: 0;margin: 0;border-radius: 0;
 }
 body{
     height: 100vh;
+    padding-right: 5%;
     background-image: linear-gradient(whitesmoke,rgb(0,200,200));
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
@@ -80,5 +81,72 @@ body{
     .y{
         top: 10px;
         right: 51%;
+    }
+}
+.form-cont{
+    border: 15px solid rgba(0, 0, 0, 0.5);
+    height: 530px;
+    width: 500px;
+    padding: 25px;
+    font-family: 'ABeeZee', sans-serif;
+    margin-right: 5%;
+    background-color: rgba(100, 100, 100, 0.5);
+    h1{
+        font-size: 20px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    select{
+        background-color: rgba(175, 185, 185, .9);
+        font-family: 'ABeeZee', sans-serif;
+        margin-top: 20px;
+        width: 100%;
+        border: 2px solid black;
+        font-size: 15px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .pattern-cont{
+        
+        h2{
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid black;
+            display: none;
+            height: 80px;
+            input[type=text]{
+                background-color: rgba(175, 185, 185, .9);
+                font-family: 'ABeeZee', sans-serif;
+                width: 50px;height: 25px;
+                text-align: center;
+                font-size: 20px;
+                border: 1px solid black;
+                margin-right: 3px;
+                padding: 15px 0;
+            }
+            ::placeholder {
+                color: black;
+            }
+        }
+        h2.ogolna{
+            display: block;
+        }
+    }
+    button{
+        background-color: rgba(175, 185, 185, .9);
+        font-family: 'ABeeZee', sans-serif;
+        margin-top: 20px;
+        font-size: 20px;
+        height: 50px;
+        border: 2px solid black;
+        width: 100%;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    .img-cont{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

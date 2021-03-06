@@ -20,21 +20,37 @@
     
     ctx.stroke();
     
-        const rowNum = document.querySelector(".row");
-        const colNum = document.querySelector(".col");
+    const rowNum = document.querySelector(".row");
+    const colNum = document.querySelector(".col");
     
     for(let i = 9;i > 0;i--){
-        colNum.innerHTML += `<span class="minus">${i}</span>`;
+        colNum.innerHTML += `<span>${i}</span>`;
         rowNum.innerHTML += `<span class="minus">${i}</span>`;
     }
     for(let i = 0;i < 10;i++){
         if(i !== 0){
-            colNum.innerHTML += `<span>${i}</span>`;
+            colNum.innerHTML += `<span class="minus">${i}</span>`;
             rowNum.innerHTML += `<span>${i}</span>`;
         }else{
             colNum.innerHTML += `<span class="zero">&nbsp</span>`;
             rowNum.innerHTML += `<span class="zero">&nbsp</span>`;
         }
-    }
-    
+    }  
 })();
+
+
+let selectChoice = document.querySelector("#selectChoice");
+let choice = selectChoice.value;
+let suitable;
+let h2_n = [...document.querySelectorAll("h2")];
+
+selectChoice.addEventListener("change", () => {
+    h2_n.forEach((item) => item.style.display = "none");
+    choice = selectChoice.value;
+    suitable = h2_n.find((item) => {
+        return item.classList.contains(choice);
+    })
+    suitable.style.display = "block";
+})
+
+let a,b,p,g,x1,x2;
