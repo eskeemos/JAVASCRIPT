@@ -12,19 +12,19 @@
     <div class="form-cont">
         <h1>Choose the form of a square pattern : </h1>
         <select id="selectChoice">
-            <option value="ogolna"" selected>Postać ogólna</option>
+            <option value="ogolna" selected>Postać ogólna</option>
             <option value="kanon">Postać kanoniczna</option>
             <option value="iloczyn">Postać iloczynowa</option>
         </select>
         <div class="pattern-cont">
             <h2 class="ogolna">
-                f(x) = <input type="text" placeholder="a">x<sup>2</sup> + <input type="text" placeholder="b">x + c
+                f(x) = <input type="text" placeholder="a" id="oA">x<sup>2</sup> + <input type="text" placeholder="b" id="oB">x + <input type="text" placeholder="c" id="oC">
             </h2>
             <h2 class="kanon">
-                f(x) = <input type="text" placeholder="a">(x - <input type="text" placeholder="p">)<sup>2</sup> + <input type="text" placeholder="q">
+                f(x) = <input type="text" placeholder="a" id="kA">(x - <input type="text" placeholder="p" id="kP">)<sup>2</sup> + <input type="text" placeholder="q" id="kQ">
             </h2>
             <h2 class="iloczyn">
-                f(x) = <input type="text" placeholder="a">(x - <input type="text" placeholder="x1">)(x - <input type="text" placeholder="x2">)<sup>&nbsp;</sup> 
+                f(x) = <input type="text" placeholder="a" id="iA">(x - <input type="text" placeholder="x1" id="iX1">)(x - <input type="text" placeholder="x2" id="iX2">)<sup>&nbsp;</sup> 
             </h2>
         </div>
         <button id="generate">Generate a graph</button>
