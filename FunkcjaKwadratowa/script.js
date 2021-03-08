@@ -53,52 +53,54 @@ selectChoice.addEventListener("change", () => {
 
 const generate = document.querySelector("#generate");
 
-let a,b,p,g,z,x1,x2,Wx,Wy;
-let _ax2,_bx,_c;
-const wh = 1.5;
-let  i = -237.5;
-
 generate.addEventListener("click", generateGraph);
 
 function generateGraph(){
-    if(choice === "ogolna"){
-        a = document.querySelector("#oA").value;
-        b = document.querySelector("#oB").value;
-        c = document.querySelector("#oC").value; 
-        
-        while(i <= 237.5){
-            _ax2 = a * Math.pow((i / 25),2) * -25;
-            _bx = (b * (i / 25)) * -25;
-            _c = c * -25;
-            Wy = _ax2 + _bx + _c; Wx = i;
-            ctx.fillRect(Wx -.75, Wy - .75, wh, wh)
-            i += .25;
-        }
-    }else if(choice === "kanon"){
-        a = document.querySelector("#kA").value;
-        p = document.querySelector("#kP").value;
-        q = document.querySelector("#kQ").value; 
-        
-        while(i <= 237.5){
-            Wx = i;
-            Wy = (a * Math.pow(((i / 25) - p),2) * -25)+ q * -25
-            ctx.fillRect(Wx -.75, Wy - .75, wh, wh)
-            i += .2;
-        }
-    }else if(choice === "iloczyn"){
-        a = document.querySelector("#iA").value;
-        x1 = document.querySelector("#iX1").value;
-        x2 = document.querySelector("#iX2").value; 
+    let a,b,c,p,q,x1,x2,Wx,Wy,_ax2,_bx,_c,_il1,_il2,i = -237.5;
+    const wh = 1.5,hwh = wh / 2, graphUnit = 25;
+    switch(choice){
+        case "ogolna":
+            a = document.querySelector("#oA").value;
+            b = document.querySelector("#oB").value;
+            c = document.querySelector("#oC").value; 
 
-        while(i <= 237.5){
-            Wx = i;
-            Wy = a * ((i / 25) - x1) * ((i / 25) - x2) * -25;
-            ctx.fillRect(Wx -.75, Wy - .75, wh, wh)
-            i += .2;
-        }
-    }else{
-        alert("Something gone wrong!");
+            while(i <= 237.5){
+                _ax2 = a * Math.pow((i / graphUnit), 2) * - graphUnit;
+                _bx = (b * (i / graphUnit)) * -graphUnit;
+                _c = c * -graphUnit;
+                Wy = _ax2 + _bx + _c; Wx = i;
+
+                ctx.fillRect(Wx - hwh, Wy - hwh, wh, wh)
+                i += graphUnit / 100;
+            }
+        break;
+        case "kanon":
+            a = document.querySelector("#kA").value;
+            p = document.querySelector("#kP").value;
+            q = document.querySelector("#kQ").value; 
+
+            while(i <= 237.5){           
+                _il1 = Math.pow(((i / graphUnit) - p),2)
+                Wy = (a * _il1 * -graphUnit) + q * -graphUnit; Wx = i;
+
+                ctx.fillRect(Wx - hwh, Wy - hwh, wh, wh)
+                i += graphUnit / 100;
+            }
+        break;
+        case "iloczyn":
+            a = document.querySelector("#iA").value;
+            x1 = document.querySelector("#iX1").value;
+            x2 = document.querySelector("#iX2").value;
+
+            while(i <= 237.5){
+                _il1 = (i / graphUnit) - x1;
+                _il2 = (i / graphUnit) - x2;
+                Wy = a * _il1 * _il2 * -graphUnit; Wx = i;
+
+                ctx.fillRect(Wx - hwh, Wy - hwh, wh, wh)
+                i += graphUnit / 100;
+            }
+        break;
     }
-
 }
 
