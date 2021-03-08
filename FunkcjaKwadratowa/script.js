@@ -1,22 +1,20 @@
-const ctx = canvas.getContext('2d');
-(function gettingStarted(){
-    ctx.translate(250,250);
+const ctx = canvas.getContext('2d'), graphUnit = 25;
+(function gettingstartUnited(){
+
+    let startUnit = 250;
+
+    ctx.translate(startUnit,startUnit);
+    ctx.moveTo(-startUnit,0);ctx.lineTo(startUnit,0);
+    ctx.moveTo(0,-startUnit);ctx.lineTo(0,startUnit);
     
-    ctx.strokeStyle = "#000";
-    ctx.moveTo(-250,0);ctx.lineTo(250,0);
-    ctx.moveTo(0,-250);ctx.lineTo(0,250);
-    
-    let step = 25;
-    let start = -250;
-    let grille = 250;
-    
-    while(start < 225){
-        start += step;
-        if(start === 0) continue;
-        ctx.moveTo(-5,start);ctx.lineTo(5,start);
-        ctx.moveTo(start,-5);ctx.lineTo(start,5);
-    }
     ctx.stroke();
+
+    while(startUnit < 225){
+        startUnit += graphUnit;
+        if(startUnit === 0) continue;
+        ctx.moveTo(-5,startUnit);ctx.lineTo(5,startUnit);
+        ctx.moveTo(startUnit,-5);ctx.lineTo(startUnit,5);
+    }
     
     const rowNum = document.querySelector(".row");
     const colNum = document.querySelector(".col");
@@ -57,12 +55,20 @@ generate.addEventListener("click", generateGraph);
 
 function generateGraph(){
     let a,b,c,p,q,x1,x2,Wx,Wy,_ax2,_bx,_c,_il1,_il2,i = -237.5;
-    const wh = 1.5,hwh = wh / 2, graphUnit = 25;
+    const wh = 1.5,hwh = wh / 2;
+
+    function slashHandle(wyr){
+        if(!wyr.includes("/")) return wyr;
+        [licz, mian] = wyr.split("/");
+        return Number(licz / mian);
+    }
+
     switch(choice){
         case "ogolna":
-            a = document.querySelector("#oA").value;
-            b = document.querySelector("#oB").value;
-            c = document.querySelector("#oC").value; 
+            a = slashHandle(document.querySelector("#oA").value);
+            b = slashHandle(document.querySelector("#oB").value);
+            c = slashHandle(document.querySelector("#oC").value); 
+            console.log(a,b,c);
 
             while(i <= 237.5){
                 _ax2 = a * Math.pow((i / graphUnit), 2) * - graphUnit;
@@ -75,9 +81,9 @@ function generateGraph(){
             }
         break;
         case "kanon":
-            a = document.querySelector("#kA").value;
-            p = document.querySelector("#kP").value;
-            q = document.querySelector("#kQ").value; 
+            a = slashHandle(document.querySelector("#kA").value);
+            p = slashHandle(document.querySelector("#kP").value);
+            q = slashHandle(document.querySelector("#kQ").value);
 
             while(i <= 237.5){           
                 _il1 = Math.pow(((i / graphUnit) - p),2)
@@ -88,9 +94,9 @@ function generateGraph(){
             }
         break;
         case "iloczyn":
-            a = document.querySelector("#iA").value;
-            x1 = document.querySelector("#iX1").value;
-            x2 = document.querySelector("#iX2").value;
+            a = slashHandle(document.querySelector("#iA").value);
+            x1 = slashHandle(document.querySelector("#iX1").value);
+            x2 = slashHandle(document.querySelector("#iX2").value);
 
             while(i <= 237.5){
                 _il1 = (i / graphUnit) - x1;
