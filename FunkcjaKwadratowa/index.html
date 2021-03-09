@@ -12,9 +12,9 @@
     <div class="form-cont">
         <h1>Choose the form of a square pattern : </h1>
         <select id="selectChoice">
-            <option value="ogolna" selected>Postać ogólna</option>
-            <option value="kanon">Postać kanoniczna</option>
-            <option value="iloczyn">Postać iloczynowa</option>
+            <option value="ogolna" selected>General form <i>(Postać ogólna)</i></option>
+            <option value="kanon">Canonical form<i>(Postać kanoniczna)</i></option>
+            <option value="iloczyn">Multiplication form<i>(Postać iloczynowa)</i></option>
         </select>
         <div class="pattern-cont">
             <h2 class="ogolna">
@@ -27,19 +27,36 @@
                 f(x) = <input type="text" placeholder="a" id="iA">(x - <input type="text" placeholder="x1" id="iX1">)(x - <input type="text" placeholder="x2" id="iX2">)<sup>&nbsp;</sup> 
             </h2>
         </div>
+        <div class="color-container">
+            <span>Select a color for the graph:</span> <input type="color" id="graphColor">
+        </div>
         <button id="generate">Generate a graph</button>
         <div class="img-cont">
             <img src="./iconmonstr-school-5-120.png" alt="math logo">
         </div>
     </div>
     <div class="convas-container">
-        <canvas id="canvas" width="500px" height="500px"></canvas>
-        <h5 class="col num"></h5>
-        <h5 class="row num"></h5>
+        <canvas id="canvas" width="500%" height="500%"></canvas>
+        <h5 class="col num"></h5><h5 class="row num"></h5>
         <svg class="osy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 22h-24l12-20z"/></svg>
         <svg class="osx" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 22h-24l12-20z"/></svg>
-        <div class="x">x</div>
-        <div class="y">y</div>
+        <div class="x">x</div><div class="y">y</div>
+    </div>
+    <div class="proper-of-fun">
+        <h2>Function properties</h2>
+        <ul>
+            <li>
+                Dziedzina funkcji :  <b>Df = |R</b> 
+            </li>
+            <li>Zbiór wartości funkcji : <b>(x,x)</b></li>
+            <li>f<sub>(x)</sub> > 0 <=>  x <sub class="eixi">E</sub>  <b>(x,x)</b></li>
+            <li>f<sub>(x)</sub> = 0 <=>  x <sub class="eixi">E</sub>  <b>(x,x)</b></li>
+            <li>f<sub>(x)</sub> < 0 <=>  x <sub class="eixi">E</sub>  <b>(x,x)</b></li>
+            <li>Funkcja rosnąca w przedziale : <b>(x,x)</b> </li>
+            <li>Funkcja malejąca w przedziale : <b>(x,x)</b></li>
+            <li>Wartość największa(y<sub>max</sub>) : <b>x</b>, dla x = x</li>
+            <li>Wartość najmniejsza(y<sub>min</sub>) : <b>x</b>, dla x = x</li>
+        </ul>
     </div>
 
 
