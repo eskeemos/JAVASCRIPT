@@ -111,7 +111,7 @@ class Graph{
             wh = 1.5,
             hwh = wh / 2;
     
-        if(((i % 25) !== 0) && ((Wy %  25) !== 0)){
+        if(((i % 25) !== 0) || ((Wy %  25) !== 0)){
             setTimeout(fill, 800);
             function fill(){
                 ctx.fillRect(i - hwh, Wy - hwh, wh, wh);
@@ -133,7 +133,7 @@ class FormHandling{
         })
     }
 }
-
+let tab = [];
 window,addEventListener("DOMContentLoaded", () => {
     const graphAp = new GraphAppearance();
     graphAp.graphComponentHandle();
@@ -145,6 +145,8 @@ window,addEventListener("DOMContentLoaded", () => {
 
     generate.addEventListener("click", () => {
         const graph = new Graph();
+        tab.push(graph);
+        console.table(tab);
         graph.generateGraph();
     })
 })
