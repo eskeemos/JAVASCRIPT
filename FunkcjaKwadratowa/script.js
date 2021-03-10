@@ -1,52 +1,37 @@
 const 
     canvas = document.querySelector("#canvas"),
-    ctx = canvas.getContext('2d'),
-    graphUnit = 25;
-    
-    
-let selectChoice = document.querySelector("#selectChoice");
-let choice = selectChoice.value;
-let suitable;
-let h2_n = [...document.querySelectorAll("h2")];
+    ctx = canvas.getContext("2d"),
+    generate = document.querySelector("#generate");
+    choice = document.querySelector("#selectChoice");
+    options = [...document.querySelectorAll("h2")];
 
-selectChoice.addEventListener("change", () => {
-    h2_n.forEach((item) => item.style.display = "none");
-    choice = selectChoice.value;
-    suitable = h2_n.find((item) => {
-        return item.classList.contains(choice);
-    })
-    suitable.style.display = "block";
-})
+class GraphAppearance{
+    graphComponentHandle(){
+        ctx.translate(250,250);
 
-const generate = document.querySelector("#generate");
-
-let a,b,c,p,q,x1,x2,Wx,Wy,_ax2,_bx,_c,_il1,_il2,variab,vID,i = -237.5;
-const wh = 1.5,hwh = wh / 2;
-const graphColor = document.querySelector("#graphColor");
-
-class Graph{
+        this.generateAxis();
+        this.generateDashes();
+        this.generateUnits();
+    }
     generateAxis(){
-        let 
-            i = -9,
-            startUnit = -250;
-        const   
+        ctx.moveTo(-250,0);ctx.lineTo(250,0);
+        ctx.moveTo(0,-250);ctx.lineTo(0,250);
+        ctx.stroke();
+    }
+    generateDashes(){
+        for(let fdash = -225;fdash < 250;fdash += 25){
+            if(fdash === 0) continue;
+            ctx.moveTo(-5,fdash);ctx.lineTo(5,fdash);
+            ctx.moveTo(fdash,-5);ctx.lineTo(fdash,5);         
+        } 
+        ctx.stroke();
+    }
+    generateUnits(){
+        const 
             rowNum = document.querySelector(".row"),
             colNum = document.querySelector(".col");
 
-        ctx.translate(-startUnit,-startUnit);
-        ctx.moveTo(startUnit,0);ctx.lineTo(-startUnit,0);
-        ctx.moveTo(0,startUnit);ctx.lineTo(0,-startUnit);
-
-        while(startUnit < 225){
-            startUnit += graphUnit;
-            if(startUnit === 0) continue;
-            ctx.moveTo(-5,startUnit);ctx.lineTo(5,startUnit);
-            ctx.moveTo(startUnit,-5);ctx.lineTo(startUnit,5);
-        }
-    
-        ctx.stroke();
-
-        for(i;i < 10;++i){
+        for(let i = -9;i < 10;++i){
             if(i < 0){
                 colNum.innerHTML += `<span>${-i}</span>`;
                 rowNum.innerHTML += `<span class="minus">${i}</span>`;
@@ -59,80 +44,107 @@ class Graph{
             }
         }
     }
-    
+}
+class Graph{
+    constructor(){
+        this.color = document.querySelector("#graphColor").value;
+        this.choice = document.querySelector("#selectChoice").value;
+    }
     generateGraph(){
-        let licz, mian,
-            zm1,zm2,zm3,
-            w1,w2,w3;
-            
-        ctx.fillStyle = graphColor.value;
+        const unit = 25;
+        let zm1, zm2, zm3, w1, w2, w3, Wy,
+            i = -237.5;
+        
+        ctx.fillStyle = this.color;
 
-        function slashHandle(wyr){
-            if(!wyr.includes("/")) return wyr;
-            [licz, mian] = wyr.split("/");
-            return Number(licz / mian);
-        }
-        function drawing(Wx, Wy){
-            if(((Wx % 25) !== 0) && ((Wy %  25) !== 0)){
-                setTimeout(fill, 800);
-                function fill(){
-                    ctx.fillRect(Wx - hwh, Wy - hwh, wh, wh);
-                }
-            }else{
-                ctx.fillRect(Wx - 2, Wy - 2, 4, 4); 
-            }
-            i += graphUnit / 100;
-        }
-        function setVar(vID){
-            return slashHandle(document.querySelector(`#${vID}`).value);
-        }
-        switch(choice){
+        switch(this.choice){
             case "ogolna":
-                zm1 = setVar('oA');
-                zm2 = setVar('oB');
-                zm3 = setVar('oC');   
+                zm1 = this.setVar('oA');
+                zm2 = this.setVar('oB');
+                zm3 = this.setVar('oC');   
                 while(i <= 237.5){
-                    w1 = zm1 * Math.pow((i / graphUnit), 2) * -graphUnit;
-                    w2 = zm2 * (i / graphUnit) * -graphUnit;
-                    w3 = zm3 * -graphUnit;
+                    w1 = zm1 * Math.pow((i / unit), 2) * -unit;
+                    w2 = zm2 * (i / unit) * -unit;
+                    w3 = zm3 * -unit;
                     Wy = w1 + w2 + w3;
-                    drawing(i,Wy);
+                    this.drawing(i,Wy); i += .25;
                 }
             break;
             case "kanon":
-                zm1 = setVar('kA');
-                zm2 = setVar('kP');
-                zm3 = setVar('kQ');
+                zm1 = this.setVar('kA');
+                zm2 = this.setVar('kP');
+                zm3 = this.setVar('kQ');
                 while(i <= 237.5){      
-                    w1 = zm1 * -graphUnit;     
-                    w2 = Math.pow(((i / graphUnit) - zm2), 2);
-                    w3 = zm3 * -graphUnit;
+                    w1 = zm1 * -unit;     
+                    w2 = Math.pow(((i / unit) - zm2), 2);
+                    w3 = zm3 * -unit;
                     Wy = w1 * w2 + w3;
-                    drawing(i,Wy);
+                    this.drawing(i,Wy); i += .25;
                 }
             break;
             case "iloczyn":
-                zm1 = setVar('iA');
-                zm2 = setVar('iX1');
-                zm3 = setVar('iX2');
+                zm1 = this.setVar('iA');
+                zm2 = this.setVar('iX1');
+                zm3 = this.setVar('iX2');
                 while(i <= 237.5){
-                    w1 = zm1 * -graphUnit;
-                    w2 = (i / graphUnit) - zm2;
-                    w3 = (i / graphUnit) - zm3;
+                    w1 = zm1 * -unit;
+                    w2 = (i / unit) - zm2;
+                    w3 = (i / unit) - zm3;
                     Wy = w1 * w2 * w3;
-                    drawing(i,Wy)
+                    this.drawing(i,Wy); i += .25;
                 }
             break;
         }
     }
+    setVar(vID){
+        return this.slashHandle(document.querySelector(`#${vID}`).value);
+    }
+    slashHandle(wyr){
+        let licz, mian;
+
+        if(!wyr.includes("/")) return wyr;
+        [licz, mian] = wyr.split("/");
+        return Number(licz / mian);
+    }
+    drawing(i, Wy){
+        const 
+            wh = 1.5,
+            hwh = wh / 2;
+    
+        if(((i % 25) !== 0) && ((Wy %  25) !== 0)){
+            setTimeout(fill, 800);
+            function fill(){
+                ctx.fillRect(i - hwh, Wy - hwh, wh, wh);
+            }
+        }else{
+            ctx.fillRect(i - 2, Wy - 2, 4, 4); 
+        }
+    }
+}
+class FormHandling{
+    pattern(){
+        options.forEach((item) => {
+            item.style.display = "none";
+            const choiceV = choice.value;
+            const suitable = options.find((item) => {
+                return item.classList.contains(choiceV);
+            })
+            suitable.style.display = "block";
+        })
+    }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-    const generate = document.querySelector("#generate");
-    const graph = new Graph();
+window,addEventListener("DOMContentLoaded", () => {
+    const graphAp = new GraphAppearance();
+    graphAp.graphComponentHandle();
 
-    graph.generateAxis();
+    const formHd = new FormHandling();
+    choice.addEventListener("change", () => {
+        formHd.pattern();    
+    })
 
-    generate.addEventListener("click", graph.generateGraph);
-});
-
+    generate.addEventListener("click", () => {
+        const graph = new Graph();
+        graph.generateGraph();
+    })
+})
