@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
 
 *{
     box-sizing: border-box;
@@ -86,6 +86,25 @@ $graphNet : rgb(50, 100, 100);
         .y{
             top: 5px;
             right: 51.5%;
+        }
+    }
+    .prop-cont{
+        background-color: silver;
+        font-family: 'Blinker', sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        h1{
+            padding: 25px 0 ;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 25px;
+        }
+        ul{
+            list-style-type: square;
+            list-style-position: inside;
+            padding: 25px;
         }
     }
 }
