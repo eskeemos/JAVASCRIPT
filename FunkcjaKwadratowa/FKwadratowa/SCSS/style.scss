@@ -17,12 +17,8 @@ $graphNet : rgb(50, 100, 100);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    & > *{
-        height: 500px;
-        width: 500px;
-        outline: 10px solid $mainBorder;
-    }
     .grap-cont{
+        outline: 10px solid $mainBorder;
         background-color: rgb(200, 200, 200);
         background-position: -.2px -.2px; 
         background-size: 25px 25px;
@@ -86,25 +82,6 @@ $graphNet : rgb(50, 100, 100);
         .y{
             top: 5px;
             right: 51.5%;
-        }
-    }
-    .prop-cont{
-        background-color: silver;
-        font-family: 'Blinker', sans-serif;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        h1{
-            padding: 25px 0 ;
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 25px;
-        }
-        ul{
-            list-style-type: square;
-            list-style-position: inside;
-            padding: 25px;
         }
     }
 }
