@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Syne+Mono&display=swap');
+
+
+*{
+    outline: none;border: none;
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+$color1 :  rgb(120, 120, 240);
+.content{
+    width: 1536px;
+    height: 722px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    & > *{
+        outline: 5px solid $color1 ;
+    }
+    .form-cont{
+        background: wheat;
+        width: 500px;
+        height: 500px;
+    }
+    .graph-cont{
+        background-color: whitesmoke;
+        background-position: -.2px -.2px; 
+        background-size: 25px 25px;
+        background-image: 
+            linear-gradient( $color1 ,#0000 3%),
+            linear-gradient(90deg, $color1 ,#0000 3%);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Karla', sans-serif;
+        .num{
+            position: absolute;
+            display: flex;
+            span{
+                font-size: 12px;
+                width: 10px;
+                text-align: center;
+                position: relative;
+                color: black;
+                font-weight: bold;
+            }
+            .min::before{
+                content: "- ";
+                position: absolute;
+                left: -3px;
+                top: -.25px;
+            }
+        }
+        #row{
+            height: 92.75%;
+            right: 46.25%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #col{
+            width: 92%;
+            top: 46.25%;
+            justify-content: space-between;
+        }
+        svg{
+            position: absolute;
+            height: 12px;
+        }
+        #Trow{
+            top: -1.5px;
+            left: 47.67%;
+        }
+        #Tcol{
+            transform: rotate(90deg);
+            right: -7.6px;
+            top: 48.8%;
+        }
+        .x, .y{
+            position: absolute;
+            font-family: 'Syne Mono', monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .x{
+            right: 7px;
+            top: 50%;
+        }
+        .y{
+            top: -1px;
+            right: 51.5%;
+        }
+    }
+
+}
