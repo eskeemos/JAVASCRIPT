@@ -29,13 +29,16 @@ class GraphAppearance{
             rowNum = document.querySelector("#row");
 
         for(let i = -9;i < 10;++i){
-            if(i < 0){
+            if(i === -1){
+                rowNum.innerHTML += `<span>&nbsp;</span>`;
+                colNum.innerHTML += `<span class="min">${-i}</span>`;
+            }else if(i < 0){
                 colNum.innerHTML += `<span class="min">${-i}</span>`;
                 rowNum.innerHTML += `<span>${-i}</span>`;
-            }else if(i === 0){
-                colNum.innerHTML += `<span class="zero">&nbsp</span>`;
-                rowNum.innerHTML += `<span class="zero">&nbsp</span>`;
-            }else{
+            }else if(i === -1){
+                colNum.innerHTML += `<span>${i}</span>`;
+                rowNum.innerHTML += `<span class="min">${i}</span>`;
+            }else if(i > 0){
                 colNum.innerHTML += `<span>${i}</span>`;
                 rowNum.innerHTML += `<span  class="min">${i}</span>`;
             }

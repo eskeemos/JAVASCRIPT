@@ -43,6 +43,7 @@ $color1 :  rgb(120, 120, 240);
         .num{
             position: absolute;
             display: flex;
+            justify-content: space-around;
             span{
                 font-size: 12px;
                 width: 10px;
@@ -54,20 +55,17 @@ $color1 :  rgb(120, 120, 240);
             .min::before{
                 content: "- ";
                 position: absolute;
-                left: -3px;
-                top: -.25px;
+                left: -3.75px;
             }
         }
         #row{
-            height: 92.75%;
+            height: 450px;
             right: 46.25%;
             flex-direction: column;
-            justify-content: space-between;
         }
         #col{
-            width: 92%;
-            top: 46.25%;
-            justify-content: space-between;
+            width: 450px;
+            top: 46%;
         }
         svg{
             position: absolute;
