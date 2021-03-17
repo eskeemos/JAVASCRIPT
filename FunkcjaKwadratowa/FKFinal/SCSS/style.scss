@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=PT+Sans+Narrow&display=swap');
 
 
 *{
@@ -11,22 +12,47 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: rgba(35, 48, 167, 0.459);
+    
+    
 }
 $color1 :  rgb(120, 120, 240);
+$color2 : rgb(225, 225, 225);
 .content{
     width: 1536px;
     height: 722px;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-around;
     & > *{
         outline: 5px solid $color1 ;
+        box-shadow: 0 0 25px 15px rgba(0, 0, 0, 0.5);
     }
     .form-cont{
         background: wheat;
         width: 500px;
         height: 500px;
+        div{
+            height: 85px;
+            width: 90%;
+            margin: auto auto;
+            background-color: snow;
+        }
+        h1{
+            text-align: center;
+            font-family: 'PT Sans Narrow', sans-serif;
+            font-size: 25px;
+            padding: 15px 0;
+            background-color: $color2;
+            border-bottom: 5px solid white;
+        }
+        h2{
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: slategray;
+            margin: 10px;
+            padding: 5px;
+            background-image: linear-gradient(to right,$color1,$color1);
+        }
     }
     .graph-cont{
         background-color: whitesmoke;
@@ -61,11 +87,13 @@ $color1 :  rgb(120, 120, 240);
         #row{
             height: 450px;
             right: 46.25%;
+            top: 26px;
             flex-direction: column;
         }
         #col{
             width: 450px;
             top: 46%;
+            left: 26px;
         }
         svg{
             position: absolute;
