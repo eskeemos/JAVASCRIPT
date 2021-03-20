@@ -1,7 +1,11 @@
 const 
-    canvas = document.querySelector("#canvas");
-    ctx = canvas.getContext("2d");
-
+    canvas  = document.querySelector("#canvas");
+    ctx     = canvas.getContext("2d"),
+    choices = [...document.querySelectorAll("[id^=choice]")],
+    colors  = [...document.querySelectorAll("[class^=col]")];
+    custom = document.querySelector("#custom");
+let 
+    last;
 class GraphAppearance{
     graphComponentHandle(){
         ctx.translate(250,250);
@@ -46,7 +50,31 @@ class GraphAppearance{
     }
 }
 
+class FormHandling{
+    ComponentHandle(){
+        this.choiceHandle(colors,"chosed");
+        this.choiceHandle(choices,"selected");
+        this.customBgHandle();
+    }
+    choiceHandle(tab,classN){
+        tab.forEach((item) => item.addEventListener("click", () => {
+            if(last !== undefined) last.classList.remove(classN);
+            item.classList.add(classN);
+            last = item;
+        }))
+    }
+    customBgHandle(){
+        custom.addEventListener("change", () => {
+            document.querySelector(".col9").style.backgroundColor = custom.value;
+        })
+    }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     const graphAP = new GraphAppearance();
     graphAP.graphComponentHandle();
+
+    
+    const formHd = new FormHandling();
+    formHd.ComponentHandle();
 })
