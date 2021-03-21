@@ -3,9 +3,11 @@ const
     ctx     = canvas.getContext("2d"),
     choices = [...document.querySelectorAll("[id^=choice]")],
     colors  = [...document.querySelectorAll("[class^=col]")];
-    custom = document.querySelector("#custom");
+    custom  = document.querySelector("#custom"),
+    p       = document.querySelector("param");  
 let 
     last;
+
 class GraphAppearance{
     graphComponentHandle(){
         ctx.translate(250,250);
@@ -74,7 +76,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const graphAP = new GraphAppearance();
     graphAP.graphComponentHandle();
 
-    
     const formHd = new FormHandling();
     formHd.ComponentHandle();
 })

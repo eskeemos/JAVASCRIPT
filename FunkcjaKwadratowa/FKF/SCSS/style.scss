@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&display=swap');
+
+*{
+    margin: 0;padding: 0;
+    border: none;outline: none;
+    box-sizing: border-box;
+}
+
+$color1 : rgb(120, 120, 240);
+$color2 : rgb(53, 52, 129);
+$color3 : rgba(0, 0, 0, .75);
+$color4 : rgba(200, 200, 255, .8);
+$font1 : 'Maven Pro', sans-serif;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: $color3;
+}
+.content{
+    width: 1536px;
+    height: 722px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & > *{
+        width: 500px;
+        height: 500px;
+        outline: 15px solid $color2;
+        box-shadow: 0 0 25px 15px $color3;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        font-family: $font1;
+        background-color: rgba(0, 0, 0, .5);
+        & > *{
+            flex: 1;
+            border-bottom: 15px solid $color2;
+            position: relative;
+        }
+        & > *:last-child{
+            border: none;
+            flex: .65;
+        }
+        & > *:first-child{
+            flex: .65;
+        }
+        .con1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h1{
+                font-size: 20px;
+                color: $color4;
+            }
+        }
+        .con5{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button{
+                font-family: $font1;
+                border: 2px solid $color1;
+                font-size: 20px;
+                background: rgba(0, 0, 0,.45);
+                color: white;
+                padding: 10px 25px;
+                margin: 0 25px;
+                transition: 250ms background-color ease-in-out;
+                cursor: pointer;
+                &:hover{
+                    background-color: $color1;
+                }
+            }
+        }
+        .fheading{
+            display: flex;
+            align-items: center;
+            height: 40%;
+            background-image: linear-gradient(to right,$color3 ,#0000 50%);
+            h5{
+                color: $color4;
+                text-indent: 25px;
+                font-size: 18px;
+            }
+        }
+        .patterns{
+            height: 60%;
+            display: flex;
+            align-items: center;
+            h4{
+                flex: 1;
+                text-align: center;
+                margin: 25px;
+                padding: 7px 10px;
+                border: 2px solid $color1;
+                background: rgba(0, 0, 0,.85);
+                color: white;
+                font-weight: 100;
+                opacity: .25;
+                transition: 250ms opacity ease-in-out;
+                cursor: pointer;
+                &:hover{
+                    opacity: .75;
+                }
+            }
+            .selected{
+                opacity: 1;
+            }
+        }
+        .equation{
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'ABeeZee';
+            font-weight: bold;
+            color: $color4;
+            font-size: 27.5px;
+            padding-bottom: 7px;
+            input[type=text]{
+                color: whitesmoke;
+                background-color: $color3;
+                border: 2px solid $color1;
+                font-size: 18px;
+                width: 60px;
+                text-align: center;
+                padding: 5px 0 4px 0;
+                margin: 0 5px;
+                &::placeholder{
+                    color: whitesmoke;
+                    font-family: 'ABeeZee';
+                }
+            }
+        }
+        .coloptions{
+            height: 60%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            & > *{
+                height: 38px;
+                width: 38px;
+                border: 5px solid $color1;
+                border-radius: 50%;
+                cursor: pointer;
+                opacity: .25;
+                &:hover{
+                    opacity: .75;
+                }
+            }
+            .chosed{
+                opacity: 1;
+            }
+            #red{background-color: red}
+            #orangered{background-color: orangered}
+            #yellow{background-color: yellow}
+            #green{background-color: green}
+            #black{background-color: black}
+            #blue{background-color: blue}
+            #rebeccapurple{background-color: rebeccapurple}
+            #deeppink{background-color: deeppink}
+            #customC{
+                background: wheat;
+                position: relative;
+            }
+            input[type=color]{
+                background: transparent;
+                position: absolute;
+                left: -8px;
+                height: 45px;
+                width: 42px;
+                top: -10px;
+                opacity: 0;
+                border-radius: 50px;
+                z-index: 10;
+                cursor: pointer;
+            }
+            svg{
+                position: absolute;
+                left: 2px;
+                top: 2px;
+            }
+        }
+    }
+    .graph{
+        background-color: whitesmoke;
+        background-position: -.2px -.2px; 
+        background-size: 25px 25px;
+        background-image: 
+            linear-gradient(       $color1 ,#0000 3%),
+            linear-gradient(90deg, $color1 ,#0000 3%);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Karla', sans-serif;
+        .num{
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+        }
+        span{
+            font-size: 12px;
+            width: 10px;
+            text-align: center;
+            position: relative;
+            color: black;
+            font-weight: bold;
+        }
+        .min::before{
+            content: "- ";
+            position: absolute;
+            left: -3.75px;
+        }
+        #row{
+            height: 450px;
+            right: 46.25%;
+            top: 26px;
+            flex-direction: column;
+        }
+        #col{
+            width: 450px;
+            top: 46%;
+            left: 26px;
+        }
+        svg{
+            position: absolute;
+            height: 12px;
+        }
+        #Trow{top: -1.5px;
+            left: 47.67%;
+        }
+        #Tcol{
+            transform: rotate(90deg);
+            right: -7.6px;
+            top: 48.8%;
+        }
+        .x, .y{
+            position: absolute;
+            font-family: 'Syne Mono', monospace;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .x{right: 7px;top: 50%;}
+        .y{top: -1px; right: 51.5%;}
+    }
+}

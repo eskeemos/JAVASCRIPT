@@ -69,8 +69,6 @@ $formCol : rgba(0, 0, 0, .5);
                     font-size: 22px;
                     font-weight: bold;
                     padding: 5px;
-                    border: 2px solid $color1;
-                    background-color: black;;
                     width: 93.5%;
                     margin: auto auto;
                     margin-top: 10px;
@@ -109,7 +107,9 @@ $formCol : rgba(0, 0, 0, .5);
                 border: 2px solid $color1;
                 background: rgba(0, 0, 0,.85);
                 font-size: 18px;
-                transition: 150ms opacity ease-in-out;
+                transition: 
+                150ms opacity ease-in-out,
+                250ms box-shadow ease-in;
                 cursor: pointer;
                 flex: 1;
                 margin: 15px;
@@ -144,12 +144,16 @@ $formCol : rgba(0, 0, 0, .5);
             width: 35px;
             cursor: pointer;
             opacity: .25;
+            transition: 
+            500ms flex ease;
+            flex: 1;
         }
         [class^=col]:hover{
             opacity: .75;
         }
         .chosed{
             opacity: 1;
+            flex: 2;
         }
         .ol1{background-color: hsl(0, 0%, 0%)}
         .col2{background-color: hsl(0, 100%, 50%)}
